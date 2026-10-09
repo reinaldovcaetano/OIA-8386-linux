@@ -1,0 +1,231 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "OIA8386.PPD"
+*Manufacturer: "OIA"
+*Product: "(OIA-8386)"
+*ModelName: "OIA-8386 TSPL Label Printer"
+*ShortNickName: "OIA-8386 TSPL"
+*NickName: "OIA-8386 TSPL Label Printer"
+*1284DeviceID: "MFG:LABEL;CMD:POS;MDL:-9X20;CLS:PRINTER;"
+*PSVersion: "(3010.000) 0"
+*LanguageLevel: "3"
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*FileSystem: False
+*Throughput: "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*cupsVersion: 2.4
+*cupsModelNumber: 0
+*cupsManualCopies: True
+*cupsFilter2: "application/vnd.cups-raster application/vnd.cups-raw 50 rastertotspl"
+
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: w100h150
+*PageSize w100h150/100x150mm: "<</PageSize[283.46 425.2]/ImagingBBox null>>setpagedevice"
+*PageSize w100h100/100x100mm: "<</PageSize[283.46 283.46]/ImagingBBox null>>setpagedevice"
+*PageSize w100h50/100x50mm: "<</PageSize[283.46 141.73]/ImagingBBox null>>setpagedevice"
+*PageSize w100h25/100x25mm: "<</PageSize[283.46 70.87]/ImagingBBox null>>setpagedevice"
+*PageSize w100h113/100x113mm: "<</PageSize[283.46 320.31]/ImagingBBox null>>setpagedevice"
+*PageSize w100h145/100x145mm: "<</PageSize[283.46 411.02]/ImagingBBox null>>setpagedevice"
+*PageSize w100h180/100x180mm: "<</PageSize[283.46 510.24]/ImagingBBox null>>setpagedevice"
+*PageSize w100h190/100x190mm: "<</PageSize[283.46 538.58]/ImagingBBox null>>setpagedevice"
+*PageSize w100h200/100x200mm: "<</PageSize[283.46 566.93]/ImagingBBox null>>setpagedevice"
+*PageSize w100h210/100x210mm: "<</PageSize[283.46 595.28]/ImagingBBox null>>setpagedevice"
+*PageSize w94h145/94x145mm: "<</PageSize[266.46 411.02]/ImagingBBox null>>setpagedevice"
+*PageSize w94h150/94x150mm: "<</PageSize[266.46 425.2]/ImagingBBox null>>setpagedevice"
+*PageSize w94h187/94x187mm: "<</PageSize[266.46 530.08]/ImagingBBox null>>setpagedevice"
+*PageSize w94h190/94x190mm: "<</PageSize[266.46 538.58]/ImagingBBox null>>setpagedevice"
+*PageSize w94h200/94x200mm: "<</PageSize[266.46 566.93]/ImagingBBox null>>setpagedevice"
+*PageSize w94h210/94x210mm: "<</PageSize[266.46 595.28]/ImagingBBox null>>setpagedevice"
+*PageSize w105h145/105x145mm: "<</PageSize[297.64 411.02]/ImagingBBox null>>setpagedevice"
+*PageSize w105h150/105x150mm: "<</PageSize[297.64 425.2]/ImagingBBox null>>setpagedevice"
+*PageSize w105h190/105x190mm: "<</PageSize[297.64 538.58]/ImagingBBox null>>setpagedevice"
+*PageSize w105h200/105x200mm: "<</PageSize[297.64 566.93]/ImagingBBox null>>setpagedevice"
+*PageSize w105h210/105x210mm: "<</PageSize[297.64 595.28]/ImagingBBox null>>setpagedevice"
+*PageSize w72h100/72x100mm: "<</PageSize[204.09 283.46]/ImagingBBox null>>setpagedevice"
+*PageSize w72h150/72x150mm: "<</PageSize[204.09 425.2]/ImagingBBox null>>setpagedevice"
+*PageSize w72h180/72x180mm: "<</PageSize[204.09 510.24]/ImagingBBox null>>setpagedevice"
+*PageSize w60h40/60x40mm: "<</PageSize[170.08 113.39]/ImagingBBox null>>setpagedevice"
+*PageSize w50h20/50x20mm: "<</PageSize[141.73 56.69]/ImagingBBox null>>setpagedevice"
+*PageSize w50h30/50x30mm: "<</PageSize[141.73 85.04]/ImagingBBox null>>setpagedevice"
+*PageSize w50h25/50x25mm: "<</PageSize[141.73 70.87]/ImagingBBox null>>setpagedevice"
+*PageSize w40h50/40x50mm: "<</PageSize[113.39 141.73]/ImagingBBox null>>setpagedevice"
+*PageSize w40h30/40x30mm: "<</PageSize[113.39 85.04]/ImagingBBox null>>setpagedevice"
+*PageSize w40h20/40x20mm: "<</PageSize[113.39 56.69]/ImagingBBox null>>setpagedevice"
+*PageSize w30h20/30x20mm: "<</PageSize[85.04 56.69]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: w100h150
+*PageRegion w100h150/100x150mm: "<</PageSize[283.46 425.2]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h100/100x100mm: "<</PageSize[283.46 283.46]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h50/100x50mm: "<</PageSize[283.46 141.73]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h25/100x25mm: "<</PageSize[283.46 70.87]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h113/100x113mm: "<</PageSize[283.46 320.31]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h145/100x145mm: "<</PageSize[283.46 411.02]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h180/100x180mm: "<</PageSize[283.46 510.24]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h190/100x190mm: "<</PageSize[283.46 538.58]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h200/100x200mm: "<</PageSize[283.46 566.93]/ImagingBBox null>>setpagedevice"
+*PageRegion w100h210/100x210mm: "<</PageSize[283.46 595.28]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h145/94x145mm: "<</PageSize[266.46 411.02]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h150/94x150mm: "<</PageSize[266.46 425.2]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h187/94x187mm: "<</PageSize[266.46 530.08]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h190/94x190mm: "<</PageSize[266.46 538.58]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h200/94x200mm: "<</PageSize[266.46 566.93]/ImagingBBox null>>setpagedevice"
+*PageRegion w94h210/94x210mm: "<</PageSize[266.46 595.28]/ImagingBBox null>>setpagedevice"
+*PageRegion w105h145/105x145mm: "<</PageSize[297.64 411.02]/ImagingBBox null>>setpagedevice"
+*PageRegion w105h150/105x150mm: "<</PageSize[297.64 425.2]/ImagingBBox null>>setpagedevice"
+*PageRegion w105h190/105x190mm: "<</PageSize[297.64 538.58]/ImagingBBox null>>setpagedevice"
+*PageRegion w105h200/105x200mm: "<</PageSize[297.64 566.93]/ImagingBBox null>>setpagedevice"
+*PageRegion w105h210/105x210mm: "<</PageSize[297.64 595.28]/ImagingBBox null>>setpagedevice"
+*PageRegion w72h100/72x100mm: "<</PageSize[204.09 283.46]/ImagingBBox null>>setpagedevice"
+*PageRegion w72h150/72x150mm: "<</PageSize[204.09 425.2]/ImagingBBox null>>setpagedevice"
+*PageRegion w72h180/72x180mm: "<</PageSize[204.09 510.24]/ImagingBBox null>>setpagedevice"
+*PageRegion w60h40/60x40mm: "<</PageSize[170.08 113.39]/ImagingBBox null>>setpagedevice"
+*PageRegion w50h20/50x20mm: "<</PageSize[141.73 56.69]/ImagingBBox null>>setpagedevice"
+*PageRegion w50h30/50x30mm: "<</PageSize[141.73 85.04]/ImagingBBox null>>setpagedevice"
+*PageRegion w50h25/50x25mm: "<</PageSize[141.73 70.87]/ImagingBBox null>>setpagedevice"
+*PageRegion w40h50/40x50mm: "<</PageSize[113.39 141.73]/ImagingBBox null>>setpagedevice"
+*PageRegion w40h30/40x30mm: "<</PageSize[113.39 85.04]/ImagingBBox null>>setpagedevice"
+*PageRegion w40h20/40x20mm: "<</PageSize[113.39 56.69]/ImagingBBox null>>setpagedevice"
+*PageRegion w30h20/30x20mm: "<</PageSize[85.04 56.69]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: w100h150
+*ImageableArea w100h150: "0 0 283.46 425.2"
+*ImageableArea w100h100: "0 0 283.46 283.46"
+*ImageableArea w100h50: "0 0 283.46 141.73"
+*ImageableArea w100h25: "0 0 283.46 70.87"
+*ImageableArea w100h113: "0 0 283.46 320.31"
+*ImageableArea w100h145: "0 0 283.46 411.02"
+*ImageableArea w100h180: "0 0 283.46 510.24"
+*ImageableArea w100h190: "0 0 283.46 538.58"
+*ImageableArea w100h200: "0 0 283.46 566.93"
+*ImageableArea w100h210: "0 0 283.46 595.28"
+*ImageableArea w94h145: "0 0 266.46 411.02"
+*ImageableArea w94h150: "0 0 266.46 425.2"
+*ImageableArea w94h187: "0 0 266.46 530.08"
+*ImageableArea w94h190: "0 0 266.46 538.58"
+*ImageableArea w94h200: "0 0 266.46 566.93"
+*ImageableArea w94h210: "0 0 266.46 595.28"
+*ImageableArea w105h145: "0 0 297.64 411.02"
+*ImageableArea w105h150: "0 0 297.64 425.2"
+*ImageableArea w105h190: "0 0 297.64 538.58"
+*ImageableArea w105h200: "0 0 297.64 566.93"
+*ImageableArea w105h210: "0 0 297.64 595.28"
+*ImageableArea w72h100: "0 0 204.09 283.46"
+*ImageableArea w72h150: "0 0 204.09 425.2"
+*ImageableArea w72h180: "0 0 204.09 510.24"
+*ImageableArea w60h40: "0 0 170.08 113.39"
+*ImageableArea w50h20: "0 0 141.73 56.69"
+*ImageableArea w50h30: "0 0 141.73 85.04"
+*ImageableArea w50h25: "0 0 141.73 70.87"
+*ImageableArea w40h50: "0 0 113.39 141.73"
+*ImageableArea w40h30: "0 0 113.39 85.04"
+*ImageableArea w40h20: "0 0 113.39 56.69"
+*ImageableArea w30h20: "0 0 85.04 56.69"
+*DefaultPaperDimension: w100h150
+*PaperDimension w100h150: "283.46 425.2"
+*PaperDimension w100h100: "283.46 283.46"
+*PaperDimension w100h50: "283.46 141.73"
+*PaperDimension w100h25: "283.46 70.87"
+*PaperDimension w100h113: "283.46 320.31"
+*PaperDimension w100h145: "283.46 411.02"
+*PaperDimension w100h180: "283.46 510.24"
+*PaperDimension w100h190: "283.46 538.58"
+*PaperDimension w100h200: "283.46 566.93"
+*PaperDimension w100h210: "283.46 595.28"
+*PaperDimension w94h145: "266.46 411.02"
+*PaperDimension w94h150: "266.46 425.2"
+*PaperDimension w94h187: "266.46 530.08"
+*PaperDimension w94h190: "266.46 538.58"
+*PaperDimension w94h200: "266.46 566.93"
+*PaperDimension w94h210: "266.46 595.28"
+*PaperDimension w105h145: "297.64 411.02"
+*PaperDimension w105h150: "297.64 425.2"
+*PaperDimension w105h190: "297.64 538.58"
+*PaperDimension w105h200: "297.64 566.93"
+*PaperDimension w105h210: "297.64 595.28"
+*PaperDimension w72h100: "204.09 283.46"
+*PaperDimension w72h150: "204.09 425.2"
+*PaperDimension w72h180: "204.09 510.24"
+*PaperDimension w60h40: "170.08 113.39"
+*PaperDimension w50h20: "141.73 56.69"
+*PaperDimension w50h30: "141.73 85.04"
+*PaperDimension w50h25: "141.73 70.87"
+*PaperDimension w40h50: "113.39 141.73"
+*PaperDimension w40h30: "113.39 85.04"
+*PaperDimension w40h20: "113.39 56.69"
+*PaperDimension w30h20: "85.04 56.69"
+*VariablePaperSize: True
+*MaxMediaWidth: "306"
+*MaxMediaHeight: "1700"
+*HWMargins: 0 0 0 0
+*CustomPageSize True: "pop pop pop <</PageSize[5 -2 roll]/ImagingBBox null>>setpagedevice"
+*ParamCustomPageSize Width: 1 points 36 306
+*ParamCustomPageSize Height: 2 points 36 1700
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 0
+
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 203dpi
+*Resolution 203dpi/203 DPI: "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsColorOrder 0/cupsColorSpace 3>>setpagedevice"
+*CloseUI: *Resolution
+
+*OpenUI *Darkness/Darkness: PickOne
+*OrderDependency: 20 AnySetup *Darkness
+*DefaultDarkness: 8
+*Darkness 0/0: ""
+*Darkness 1/1: ""
+*Darkness 2/2: ""
+*Darkness 3/3: ""
+*Darkness 4/4: ""
+*Darkness 5/5: ""
+*Darkness 6/6: ""
+*Darkness 7/7: ""
+*Darkness 8/8: ""
+*Darkness 9/9: ""
+*Darkness 10/10: ""
+*Darkness 11/11: ""
+*Darkness 12/12: ""
+*Darkness 13/13: ""
+*Darkness 14/14: ""
+*Darkness 15/15: ""
+*CloseUI: *Darkness
+
+*OpenUI *PrintSpeed/Print Speed: PickOne
+*OrderDependency: 20 AnySetup *PrintSpeed
+*DefaultPrintSpeed: 4
+*PrintSpeed 2/2 ips: ""
+*PrintSpeed 3/3 ips: ""
+*PrintSpeed 4/4 ips: ""
+*PrintSpeed 5/5 ips: ""
+*PrintSpeed 6/6 ips: ""
+*CloseUI: *PrintSpeed
+
+*OpenUI *LabelGap/Gap Between Labels: PickOne
+*OrderDependency: 20 AnySetup *LabelGap
+*DefaultLabelGap: 2
+*LabelGap 0/0 mm (continuous): ""
+*LabelGap 1/1 mm: ""
+*LabelGap 2/2 mm: ""
+*LabelGap 3/3 mm: ""
+*LabelGap 4/4 mm: ""
+*LabelGap 5/5 mm: ""
+*CloseUI: *LabelGap
+
+*OpenUI *Rotate180/Rotate 180 degrees: Boolean
+*OrderDependency: 20 AnySetup *Rotate180
+*DefaultRotate180: False
+*Rotate180 False/No: ""
+*Rotate180 True/Yes: ""
+*CloseUI: *Rotate180
+
+*DefaultFont: Courier
+*Font Courier: Standard "(002.004S)" Standard ROM

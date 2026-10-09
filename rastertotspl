@@ -1,0 +1,144 @@
+#!/usr/bin/python3
+# CUPS filter: CUPS raster -> TSPL (OIA-8386 / generic TSPL label printers, 203 dpi)
+# argv: job-id user title copies options [file]
+import sys, struct
+
+def log(msg):
+    sys.stderr.write(msg + "\n")
+
+def parse_options(s):
+    opts = {}
+    for tok in s.split():
+        if "=" in tok:
+            k, v = tok.split("=", 1)
+            opts[k.lower()] = v
+        else:
+            opts[tok.lower()] = "true"
+    return opts
+
+def read_exact(f, n):
+    buf = f.read(n)
+    return buf if len(buf) == n else None
+
+def decode_ras2_page(f, height, bpl, bpp, white):
+    rows = []
+    while len(rows) < height:
+        b = f.read(1)
+        if not b:
+            break
+        repeat = b[0] + 1
+        line = bytearray()
+        while len(line) < bpl:
+            c = f.read(1)[0]
+            if c == 128:
+                line.extend(bytes([white]) * (bpl - len(line)))
+            elif c & 128:
+                line.extend(f.read((257 - c) * bpp))
+            else:
+                line.extend(f.read(bpp) * (c + 1))
+        line = bytes(line[:bpl])
+        for _ in range(repeat):
+            if len(rows) < height:
+                rows.append(line)
+    return rows
+
+def main():
+    if len(sys.argv) < 6:
+        log("ERROR: usage: rastertotspl job user title copies options [file]")
+        return 1
+    opts = parse_options(sys.argv[5])
+    f = open(sys.argv[6], "rb") if len(sys.argv) > 6 else sys.stdin.buffer
+    out = sys.stdout.buffer
+
+    density = int(opts.get("darkness", "8"))
+    speed = int(opts.get("printspeed", "4"))
+    gap = float(opts.get("labelgap", "2"))
+    direction = 1 if opts.get("rotate180", "false").lower() in ("true", "on", "yes") else 0
+    xoff = int(opts.get("xoffset", "0"))
+    yoff = int(opts.get("yoffset", "0"))
+
+    sync = f.read(4)
+    # sync is a native uint32 'RaSx'; the stored bytes reveal the byte order
+    if sync in (b"3SaR", b"2SaR"):
+        endian = "<"
+    elif sync in (b"RaS3", b"RaS2"):
+        endian = ">"
+    else:
+        log("ERROR: not a CUPS raster v2/v3 stream: %r" % sync)
+        return 1
+    compressed = sync in (b"RaS2", b"2SaR")
+
+    page = 0
+    while True:
+        hdr = read_exact(f, 1796)
+        if hdr is None:
+            break
+        u = lambda off: struct.unpack_from(endian + "I", hdr, off)[0]
+        dpi_x, dpi_y = u(276), u(280)
+        width, height = u(372), u(376)
+        bpc, bpp_bits, bpl = u(384), u(388), u(392)
+        cspace = u(400)
+        page_w_pt, page_h_pt = u(352), u(356)
+        page += 1
+        log("INFO: page %d %dx%d px, %d dpi, bpc=%d cspace=%d" % (page, width, height, dpi_x, bpc, cspace))
+        # CUPS_CSPACE_K (3): 0 = white; W (0) / sW (18): 0 = black
+        black_is_one = cspace == 3
+        white = 0x00 if black_is_one else 0xFF
+        bpp = max(1, bpp_bits // 8)
+        if compressed:
+            rows = decode_ras2_page(f, height, bpl, bpp, white)
+        else:
+            rows = []
+            for _ in range(height):
+                r = read_exact(f, bpl)
+                if r is None:
+                    break
+                rows.append(r)
+        if len(rows) < height:
+            rows += [bytes([white]) * bpl] * (height - len(rows))
+
+        wbytes = (width + 7) // 8
+        bitmap = bytearray()
+        for r in rows:
+            if bpc == 1 and bpp_bits == 1:
+                line = bytes(r[:wbytes])
+                # TSPL BITMAP: bit 0 = print dot (black), bit 1 = no dot
+                if black_is_one:
+                    line = bytes(b ^ 0xFF for b in line)
+            else:
+                # 8-bit grayscale (or first channel) -> threshold
+                bits = bytearray(wbytes)
+                for x in range(width):
+                    v = r[x * bpp]
+                    dark = v >= 128 if black_is_one else v < 128
+                    if not dark:
+                        bits[x >> 3] |= 0x80 >> (x & 7)
+                # padding bits at end stay 0 (=black) -> set them white
+                if width % 8:
+                    bits[-1] |= (0xFF >> (width % 8))
+                line = bytes(bits)
+            if bpc == 1 and width % 8:
+                line = line[:-1] + bytes([line[-1] | (0xFF >> (width % 8))])
+            bitmap += line
+
+        w_mm = page_w_pt * 25.4 / 72.0
+        h_mm = page_h_pt * 25.4 / 72.0
+        job = []
+        job.append("SIZE %d mm,%d mm" % (round(w_mm), round(h_mm)))
+        job.append("GAP %g mm,0 mm" % gap)
+        job.append("DIRECTION %d" % direction)
+        job.append("REFERENCE %d,%d" % (xoff, yoff))
+        job.append("DENSITY %d" % density)
+        job.append("SPEED %d" % speed)
+        job.append("SET TEAR ON")
+        job.append("CLS")
+        out.write(("\r\n".join(job) + "\r\n").encode("ascii"))
+        out.write(("BITMAP 0,0,%d,%d,0," % (wbytes, height)).encode("ascii"))
+        out.write(bytes(bitmap))
+        out.write(b"\r\nPRINT 1,1\r\n")
+        out.flush()
+        log("PAGE: %d 1" % page)
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
